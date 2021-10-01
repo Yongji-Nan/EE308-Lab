@@ -1,0 +1,102 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#define MAX 32
+struct Count
+{
+	char* name;
+	int count;
+};
+
+int main()
+{
+	FILE *fp;
+	char ch,filename[20];
+	int requirement_level;
+	printf("Please input the filename you want to write: ");
+	scanf("%s",filename);
+	scanf("%d",requirement_level);
+	if(!(fp=fopen(filename,"r"))){
+		printf("Cannot open the file!\n");
+		exit(0);
+	}
+	while(ch!=EOF){
+		ch=fgetc(fp);
+	}
+	fclose(fp);
+	char s[10] = { 0 };
+	struct Count arr[MAX] = {     
+		                                 "auto", 0,
+										 "break",0,
+										 "case",0,
+										 "char",0,
+										 "const", 0,
+										 "continue",0,
+										 "default",0,
+										 "do", 0,
+										 "double",0,
+										 "else",0,
+	              	                     "enum",0,
+										 "float",0,
+										 "for",0,
+										 "goto",0,
+										 "if",0,
+										 "int",0,
+										 "long",0,
+										 "register",0, 
+	                                     "while", 0,
+		                                 "reuturn",0,
+		                                 "short",0,
+		                                 "signed",0,
+		                                 "sizeof",0,
+		                                 "static", 0,
+		                                 "struct",0,
+		                                 "switch",0,
+		                                 "typedef",0,
+		                                 "union",0,
+		                                 "unsigned",0,
+		                                 "void", 0 ,
+		                                 "volatile",0,
+		                                 "while", 0,
+	};
+	int i;
+	int j=0;
+	int switch_number=0;
+	int case_number=0;
+	int total_number=0;
+	int arr1[10];
+	
+	while (strcmp(s, "\n") != 0)
+	{
+		for (i = 0; i < MAX-1; i++)
+		{
+			if (strcmp(s, arr[i].name) == 0)   // 
+			{
+				arr[i].count++;
+				if(strcmp(ch,"case")==0){
+					case_number++;
+				}
+				if(strcmp(ch,"switch")==0){
+					arr1[j]=case_number;
+					j++;
+					case_number=0;
+					switch_number++;
+				}
+			}
+		}
+	}
+	for(i=0;i<MAX-1;i++){
+		total_number=total_number+arr[i].count;
+	}
+    printf("total num: %d\n",total_number);
+    printf("switch_num: %d\n",switch_number);
+    printf("case num: ");
+    int k;
+    for(k=1;k<switch_number;k++)
+	{
+    	printf("%d",arr1[k]);
+	}
+    return 0;
+}
+
