@@ -10,8 +10,7 @@ public class Game extends JFrame implements ActionListener{
     private static List<Icon> photo=new ArrayList<Icon>(); 
     Thread t1,t2,t3,t4,t5,t6;
     IconThread p1,p2,p3,p4,p5,p6;
-    private JLabel j1,j2,j3;
-    private JLabel k1,k2,k3;
+    private JLabel n1,n2,n3,n4,n5,n6;
     private JButton start;
     private JLabel result;
     static int playerSum;
@@ -41,23 +40,37 @@ public class Game extends JFrame implements ActionListener{
 		JButton player=new JButton("中秋博饼");
 		player.setSize(100, 50);
 		player.setLocation(335, 0);
-		
 		frame.getContentPane().add(player);			
-        j1=new JLabel();
-		j1.setIcon(new ImageIcon(("image\\1.jpg")));
-		j1.setSize(196, 196);
-		j1.setLocation(40, 45);
-		frame.getContentPane().add(j1);				
-		j2=new JLabel();
-		j2.setIcon(new ImageIcon(("image\\1.jpg")));
-		j2.setSize(196, 196);
-		j2.setLocation(246, 45);
-		frame.getContentPane().add(j2);		
-		j3=new JLabel();
-		j3.setIcon(new ImageIcon(("image\\1.jpg")));
-		j3.setSize(196, 196);
-		j3.setLocation(452, 45);
-		frame.getContentPane().add(j3);		
+        n1=new JLabel();
+		n1.setIcon(new ImageIcon(("image\\1.jpg")));
+		n1.setSize(196, 196);
+		n1.setLocation(40, 45);
+		frame.getContentPane().add(n1);				
+		n2=new JLabel();
+		n2.setIcon(new ImageIcon(("image\\2.jpg")));
+		n2.setSize(196, 196);
+		n2.setLocation(246, 45);
+		frame.getContentPane().add(n2);		
+		n3=new JLabel();
+		n3.setIcon(new ImageIcon(("image\\3.jpg")));
+		n3.setSize(196, 196);
+		n3.setLocation(452, 45);
+		frame.getContentPane().add(n3);
+		n4=new JLabel();
+		n4.setIcon(new ImageIcon(("image\\4.jpg")));
+		n4.setSize(196, 196);
+		n4.setLocation(40, 300);
+		frame.getContentPane().add(n4);		
+		n5=new JLabel();
+		n5.setIcon(new ImageIcon(("image\\5.jpg")));
+		n5.setSize(196, 196);
+		n5.setLocation(246, 300);
+		frame.getContentPane().add(n5);		
+		n6=new JLabel();
+		n6.setIcon(new ImageIcon(("image\\6.jpg")));
+		n6.setSize(196, 196);
+		n6.setLocation(452, 300);
+		frame.getContentPane().add(n6);	
 		JButton player1=new JButton("大吉大利");
 		player1.setSize(100, 50);
 		player1.setLocation(335, 244);
@@ -66,31 +79,14 @@ public class Game extends JFrame implements ActionListener{
 		res.setSize(100,50);
 		res.setLocation(100,500);
 		frame.getContentPane().add(res);		
-		k1=new JLabel();
-		k1.setIcon(new ImageIcon(("image\\6.jpg")));
-		k1.setSize(196, 196);
-		k1.setLocation(40, 300);
-		frame.getContentPane().add(k1);		
-		k2=new JLabel();
-		k2.setIcon(new ImageIcon(("image\\6.jpg")));
-		k2.setSize(196, 196);
-		k2.setLocation(246, 300);
-		frame.getContentPane().add(k2);		
-		k3=new JLabel();
-		k3.setIcon(new ImageIcon(("image\\6.jpg")));
-		k3.setSize(196, 196);
-		k3.setLocation(452, 300);
-		frame.getContentPane().add(k3);		
 		start = new JButton("摇骰子");
 		start.setSize(90, 60);
 		start.setLocation(305, 586);
 	    start.addActionListener(this);
 	    frame.getContentPane().add(start);	    
-	    //
 	    result = new JLabel();
 		result.setSize(200, 100);
 		result.setLocation(48, 555);
-		//
 	    frame.getContentPane().add(result); 	    
 	    JButton help=new JButton("规则");
 		help.setSize(90,60); 
@@ -163,12 +159,12 @@ public class Game extends JFrame implements ActionListener{
 		     }
 		 }
 	public void thread(){
-        p1 = new IconThread(j1, photo);           
-        p2 = new IconThread(j2, photo);         
-        p3 = new IconThread(j3, photo); 
-        p4 = new IconThread(k1, photo);
-        p5 = new IconThread(k2, photo);
-        p6 = new IconThread(k3, photo);     
+        p1 = new IconThread(n1, photo);           
+        p2 = new IconThread(n2, photo);         
+        p3 = new IconThread(n3, photo); 
+        p4 = new IconThread(n4, photo);
+        p5 = new IconThread(n5, photo);
+        p6 = new IconThread(n5, photo);     
        
 	}
 	//上面三个的点数
@@ -233,12 +229,12 @@ public static void bubbleSort(int[] arr) {
     		e.printStackTrace();
     	}
     	//调用函数获得各图片点数
-    	int x=playerResult(j1);
-    	int y=playerResult(j2);
-    	int z=playerResult(j3);
-    	int u=computerResult(k1);
-    	int v=computerResult(k2);
-    	int w=computerResult(k3);
+    	int x=playerResult(n1);
+    	int y=playerResult(n2);
+    	int z=playerResult(n3);
+    	int u=computerResult(n4);
+    	int v=computerResult(n5);
+    	int w=computerResult(n6);
 
     	//给六个骰子赋予一个一到六的随机值
 		/*
